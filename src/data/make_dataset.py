@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 
 def make_data():
@@ -21,5 +22,23 @@ def make_data():
     data.to_csv("../../data/interim/SMILES_to_Activity.csv", index=False)
 
 
+def split_data():
+    # Load the prepared data
+    data = pd.read_csv("../../data/interim/SMILES_to_Activity.csv")
+    X_train, X_testval, y_train, y_testval = train_test_split(data["SMILES"], data["PUBCHEM_ACTIVITY_OUTCOME"],
+                                                              stratify=data["PUBCHEM_ACTIVITY_OUTCOME"], test_size=0.2)
+    X_val, X_test, y_val, y_test = train_test_split(X_testval, y_testval,
+                                                    stratify=y_testval, test_size=0.5)
+
+    train_data = pd.DataFrame({"SMILES": X_train, "PUBCHEM_ACTIVITY_OUTCOME": y_train})
+    val_data = pd.DataFrame({"SMILES": X_val, "PUBCHEM_ACTIVITY_OUTCOME": y_val})
+    test_data = pd.DataFrame({"SMILES": X_test, "PUBCHEM_ACTIVITY_OUTCOME": y_test})
+
+    train_data.to_csv("../../data/interim/train_SMILES_to_Activity.csv", index=False)
+    val_data.to_csv("../../data/interim/val_SMILES_to_Activity.csv", index=False)
+    test_data.to_csv("../../data/interim/test_SMILES_to_Activity.csv", index=False)
+
+
 if __name__ == "__main__":
     make_data()
+    split_data()
