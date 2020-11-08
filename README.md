@@ -13,7 +13,7 @@ ChemProp can automatically take `SMILES_to_Activity.csv` and split it into the r
 This is a problem because only 0.66% of the dataset is positive results (compounds that are 5-HT2A agonists), the rest are negatives. 
 To achieve better results we want to stratify the data sets so the appropriate number of active compounds end up in each of the sets, and not all of the positive compounds are in the test set. 
 
-### Training
+## Training
 `chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/default_run/` 
 
 `chemprop_train --data_path data/interim/train_SMILES_to_Activity.csv --separate_val_path data/interim/val_SMILES_to_Activity.csv --separate_test_path data/interim/test_SMILES_to_Activity.csv  --dataset_type classification --save_dir models/stratified_data_default_hp`
@@ -38,5 +38,14 @@ To achieve better results we want to stratify the data sets so the appropriate n
 | Default random split | Default with 3 ensemble | Model 2 test auc = 0.620461 Ensemble test auc = 0.629669 1-fold cross validation 	Seed 0 ==> test auc = 0.629669 Overall test auc = 0.629669 +/- 0.000000 Elapsed time = 4:52:46 | 
 
 
+## Hyperparameter optimization
 
+`chemprop_hyperopt --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --num_iters 20 --config_save_path models/20hyper`
 
+100%|██| 20/20 [78:42:25<00:00, 14167.28s/trial, best loss: -0.6172501081853173]
+best
+{'depth': 2, 'dropout': 0.0, 'ffn_num_layers': 3, 'hidden_size': 2400}
+num params: 23,721,601
+0.6172501081853173 +/- 0.0 auc
+Elapsed time = 3 days, 6:42:26
+(ai-psychs) ian@ian-MS-7A34:~/Pyc
