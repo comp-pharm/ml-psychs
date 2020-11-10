@@ -49,3 +49,13 @@ num params: 23,721,601
 0.6172501081853173 +/- 0.0 auc
 Elapsed time = 3 days, 6:42:26
 (ai-psychs) ian@ian-MS-7A34:~/Pyc
+
+
+`chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/default_hyper/ --config_path models/20hyper`
+
+Model 0 test auc = 0.617250
+Ensemble test auc = 0.617250
+1-fold cross validation
+	Seed 0 ==> test auc = 0.617250
+Overall test auc = 0.617250 +/- 0.000000
+Elapsed time = 4:52:37
