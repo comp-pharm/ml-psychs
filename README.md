@@ -59,3 +59,13 @@ Ensemble test auc = 0.617250
 	Seed 0 ==> test auc = 0.617250
 Overall test auc = 0.617250 +/- 0.000000
 Elapsed time = 4:52:37
+
+`chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/rkdit_hyper/ --config_path models/20hyper --features_generator rdkit_2d_normalized --no_features_scaling`
+
+Model 0 test auc = 0.601644
+Ensemble test auc = 0.601644
+1-fold cross validation
+	Seed 0 ==> test auc = 0.601644
+Overall test auc = 0.601644 +/- 0.000000
+Elapsed time = 9:52:27
+
