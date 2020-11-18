@@ -25,6 +25,7 @@ To achieve better results we want to stratify the data sets so the appropriate n
 `chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/100_epochs/ --epochs 100`
 
 `chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/3_ensemble/ --ensemble_size 3`
+
 ### Results
 
 | Data Split           | Hyperparameters         | Results                                                                                                                                                                                 |
