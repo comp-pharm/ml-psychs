@@ -70,3 +70,6 @@ Ensemble test auc = 0.601644
 Overall test auc = 0.601644 +/- 0.000000
 Elapsed time = 9:52:27
 
+## Prediction
+
+`chemprop_predict --test_path data/interim/repurposing_SMILES.csv --checkpoint_dir models/default_run/ --preds_path data/output/raw_results.csv`
