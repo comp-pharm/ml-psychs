@@ -28,6 +28,8 @@ To achieve better results we want to stratify the data sets so the appropriate n
 
 `chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/rkdit_hyper/ --config_path models/20hyper --features_generator rdkit_2d_normalized --no_features_scaling`
 
+`chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/5_ensemble/ --ensemble_size 5`
+
 
 ### Results
 
@@ -42,6 +44,7 @@ To achieve better results we want to stratify the data sets so the appropriate n
 | Default random split | Default with 3 ensemble | Model 2 test auc = 0.620461 Ensemble test auc = 0.629669 1-fold cross validation 	Seed 0 ==> test auc = 0.629669 Overall test auc = 0.629669 +/- 0.000000 Elapsed time = 4:52:46 | 
 | Default random split | {'depth': 2, 'dropout': 0.0, 'ffn_num_layers': 3, 'hidden_size': 2400} | Model 0 test auc = 0.617250 Ensemble test auc = 0.617250 1-fold cross validation 	Seed 0 ==> test auc = 0.617250 Overall test auc = 0.617250 +/- 0.000000 Elapsed time = 4:52:37 |
 | Default random split | Above, with rdkit features | Model 0 test auc = 0.601644 Ensemble test auc = 0.601644 1-fold cross validation 	Seed 0 ==> test auc = 0.601644 Overall test auc = 0.601644 +/- 0.000000 Elapsed time = 9:52:27 |
+| Default random split | Default with 5 ensemble | Ensemble test auc = 0.622447 1-fold cross validation 	Seed 0 ==> test auc = 0.622447 Overall test auc = 0.622447 +/- 0.000000 Elapsed time = 8:09:57 | 
 
 
 ## Hyperparameter optimization
