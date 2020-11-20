@@ -26,6 +26,9 @@ To achieve better results we want to stratify the data sets so the appropriate n
 
 `chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/3_ensemble/ --ensemble_size 3`
 
+`chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/rkdit_hyper/ --config_path models/20hyper --features_generator rdkit_2d_normalized --no_features_scaling`
+
+
 ### Results
 
 | Data Split           | Hyperparameters         | Results                                                                                                                                                                                 |
@@ -37,6 +40,8 @@ To achieve better results we want to stratify the data sets so the appropriate n
 | Default random split | Default with class balance | Model 0 test auc = 0.614006 Ensemble test auc = 0.614006 1-fold cross validation 	Seed 0 ==> test auc = 0.614006 Overall test auc = 0.614006 +/- 0.000000 Elapsed time = 0:11:56 | 
 | Default random split | Default with 100 epochs | Model 0 test auc = 0.620170 Ensemble test auc = 0.620170 1-fold cross validation 	Seed 0 ==> test auc = 0.620170 Overall test auc = 0.620170 +/- 0.000000 Elapsed time = 5:24:05 | 
 | Default random split | Default with 3 ensemble | Model 2 test auc = 0.620461 Ensemble test auc = 0.629669 1-fold cross validation 	Seed 0 ==> test auc = 0.629669 Overall test auc = 0.629669 +/- 0.000000 Elapsed time = 4:52:46 | 
+| Default random split | {'depth': 2, 'dropout': 0.0, 'ffn_num_layers': 3, 'hidden_size': 2400} | Model 0 test auc = 0.617250 Ensemble test auc = 0.617250 1-fold cross validation 	Seed 0 ==> test auc = 0.617250 Overall test auc = 0.617250 +/- 0.000000 Elapsed time = 4:52:37 |
+| Default random split | Above, with rdkit features | Model 0 test auc = 0.601644 Ensemble test auc = 0.601644 1-fold cross validation 	Seed 0 ==> test auc = 0.601644 Overall test auc = 0.601644 +/- 0.000000 Elapsed time = 9:52:27 |
 
 
 ## Hyperparameter optimization
@@ -49,26 +54,7 @@ best
 num params: 23,721,601
 0.6172501081853173 +/- 0.0 auc
 Elapsed time = 3 days, 6:42:26
-(ai-psychs) ian@ian-MS-7A34:~/Pyc
 
-
-`chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/default_hyper/ --config_path models/20hyper`
-
-Model 0 test auc = 0.617250
-Ensemble test auc = 0.617250
-1-fold cross validation
-	Seed 0 ==> test auc = 0.617250
-Overall test auc = 0.617250 +/- 0.000000
-Elapsed time = 4:52:37
-
-`chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/rkdit_hyper/ --config_path models/20hyper --features_generator rdkit_2d_normalized --no_features_scaling`
-
-Model 0 test auc = 0.601644
-Ensemble test auc = 0.601644
-1-fold cross validation
-	Seed 0 ==> test auc = 0.601644
-Overall test auc = 0.601644 +/- 0.000000
-Elapsed time = 9:52:27
 
 ## Prediction
 
