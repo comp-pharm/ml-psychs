@@ -36,6 +36,8 @@ To achieve better results we want to stratify the data sets so the appropriate n
 
 `chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --save_dir models/rdkit_5_ensemble/ --features_generator rdkit_2d_normalized --no_features_scaling --ensemble_size 5`
 
+`chemprop_train --data_path data/interim/SMILES_to_Activity.csv --dataset_type classification --split_sizes 0.98 0.01 0.01 --split_type scaffold_balanced --save_dir models/scaffold_balanced_98_data_split/`
+
 
 ### Results
 
@@ -54,6 +56,8 @@ To achieve better results we want to stratify the data sets so the appropriate n
 | Default random split | Above, with rdkit features | Model 0 test auc = 0.601644 Ensemble test auc = 0.601644 1-fold cross validation 	Seed 0 ==> test auc = 0.601644 Overall test auc = 0.601644 +/- 0.000000 Elapsed time = 9:52:27 |
 | Default random split | Default with 5 ensemble | Ensemble test auc = 0.622447 1-fold cross validation 	Seed 0 ==> test auc = 0.622447 Overall test auc = 0.622447 +/- 0.000000 Elapsed time = 8:09:57 |
 | Default random split | Default with 5 ensemble and rdkit freatures | Model 4 test auc = 0.606309 Ensemble test auc = 0.616090 1-fold cross validation 	Seed 0 ==> test auc = 0.616090 Overall test auc = 0.616090 +/- 0.000000 Elapsed time = 15:13:30 |
+| scaffold_balanced with 98/1/1 split size | Default hyperparameters | Model 0 test auc = 0.751387 Ensemble test auc = 0.751387 1-fold cross validation 	Seed 0 ==> test auc = 0.751387 Overall test auc = 0.751387 +/- 0.000000 Elapsed time = 1:30:36 |
+
  
 
 
