@@ -70,6 +70,13 @@ Elapsed time = 3 days, 6:42:26
 
 `chemprop_hyperopt --data_path data/interim/SMILES_to_Activity.csv --split_sizes 0.98 0.01 0.01 --dataset_type classification --num_iters 20 --features_generator rdkit_2d_normalized --no_features_scaling --config_save_path models/rdkit_hyper_98`
 
+100%|██| 20/20 [191:07:01<00:00, 34401.09s/trial, best loss: -0.6363898102082182]
+best
+{'depth': 6, 'dropout': 0.05, 'ffn_num_layers': 2, 'hidden_size': 1800}
+num params: 10,589,401
+0.6363898102082182 +/- 0.0 auc
+Elapsed time = 7 days, 23:07:02
+
 
 
 ## Prediction
