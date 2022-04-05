@@ -1,3 +1,1 @@
-Make new data set from confirmatory screen 624381 which only has 2,266 compounds
-and maybe a few thousand negatives from the old screen as well. 
-Training and validation should work better
+- Try making new dataset by augmenting smaller dataset with 1-2k molecules from big dataset
