@@ -41,4 +41,4 @@ def split_data():
 
 if __name__ == "__main__":
     make_data()
-    split_data()
+    # split_data()

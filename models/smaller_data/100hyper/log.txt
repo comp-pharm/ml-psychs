@@ -1,0 +1,6 @@
+100%|███████| 100/100 [01:26<00:00, 86.76s/trial, best loss: -0.955770944741533]
+Best trial, with seed 47
+{'depth': 5, 'dropout': 0.30000000000000004, 'ffn_num_layers': 3, 'hidden_size': 700}
+num params: 2,158,801
+0.955770944741533 +/- 0.0 auc
+Elapsed time = 2:41:52
