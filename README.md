@@ -6,12 +6,12 @@ This repository is for scripts related to retraining [ChemProp](https://github.c
 
 The project is laid out according to the [Cookiecutter Data Science layout](https://drivendata.github.io/cookiecutter-data-science/).
 Raw data from PubChem lives in `data/raw/`, script for turning that data into interim data for feeding into the model (`data/interim`) live in `src/data`.
-Notebooks for exploratory data analysis live in `notebooks`.
+Notebooks for exploratory data analysis live in `notebooks/`.
 
 ## Data
 
 Originally trained with [PubChem bioassay 1706](https://pubchem.ncbi.nlm.nih.gov/bioassay/1706), which has hundreds of thousands of negative examples but only a few hundred low-quality positive examples.
-Now training with [PubChem bioassay 624381](https://pubchem.ncbi.nlm.nih.gov/bioassay/624381), which is a much higher quality (confirmation) assay that more closely matches the antibiotic discovery search which was the first application for chemprop.
+Now training with [PubChem bioassay 624381](https://pubchem.ncbi.nlm.nih.gov/bioassay/624381), which is a much higher quality (confirmation) assay that more closely matches the [antibiotic discovery search which was the first application for chemprop](https://www.cell.com/cell/fulltext/S0092-8674(20)30102-1).
 
 ## Training
 
@@ -26,3 +26,11 @@ Training with the new dataset naively gets 94.8% accuracy with the default ChemP
 | New data, default hyperparameters, rdkit features, 5-ensemble | auc = 0.955548 |
 | New data, tuned hyperparameters, no added features            | auc = 0.955770 |
 | New data, tuned hyperparameters, rdkit features, 5-ensemble   | auc = 0.963235 |
+
+## Prediction
+
+Running predictions on the Broad Institute Drug Repurposing Hub dataset reveals mediocre results. 
+The old data had extremely reasonable output from the DRH dataset, top predictions were Dihydroergotamine and Pergolide.
+The new data outputs some reasonable values, but includes several long-chain alcohols as extremely likely candidates. 
+
+TODO: Supplement the new dataset with negatives from the old dataset unlike compounds that are in the new dataset.
