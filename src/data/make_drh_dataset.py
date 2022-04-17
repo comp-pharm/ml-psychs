@@ -27,4 +27,4 @@ def stitch_results():
 
 
 if __name__ == "__main__":
-    make_drh_data()
+    stitch_results()
