@@ -27,6 +27,7 @@ Training with the smaller dataset naively gets 94.8% accuracy with the default C
 | Smaller data, tuned hyperparameters, no added features            | auc = 0.955770 |
 | Smaller data, tuned hyperparameters, rdkit features, 5-ensemble   | auc = 0.963235 |
 | Augmented data, default hyperparameters, no added features        | auc = 0.942714 |
+| Augmented data, default hyperparameters, rdkit features           | auc = 0.947792 |
 
 <details>
     <summary>Full results from old data</summary>
