@@ -19,11 +19,11 @@ def stitch_results():
     """
     Take the results CSV and stitch back together with Broad ID's.
     """
-    results = pd.read_csv("../../data/output/raw_results.csv")
+    results = pd.read_csv("../../data/output/drh/raw_results.csv")
     broad_ids = pd.read_csv("../../data/interim/repurposing_SMILES_to_broad.csv")
     joined_results = results.set_index("smiles").join(broad_ids.set_index("smiles"))
     joined_results.sort_values(by=["PUBCHEM_ACTIVITY_OUTCOME"], inplace=True, ascending=False)
-    joined_results.to_csv("../../data/output/results.csv")
+    joined_results.to_csv("../../data/output/drh/results.csv")
 
 
 if __name__ == "__main__":
